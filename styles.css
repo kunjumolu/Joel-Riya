@@ -845,24 +845,45 @@ body.doors-locked {
   background: transparent;
   border: none;
   box-shadow: none;
+  text-align: center;
 }
 
-.rec-tag {
-  display: block;
+.rec-time-badge {
+  display: inline-block;
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  letter-spacing: 0.24em;
-  color: var(--gold-antique);
+  letter-spacing: 0.12em;
+  color: var(--sage-deep);
   margin-bottom: 6px;
+  text-transform: uppercase;
 }
 
-.rec-datetime {
+.rec-venue-name {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: clamp(1.28rem, 4.2vw, 1.55rem);
+  font-weight: 600;
   color: var(--sage-deep);
+  line-height: 1.25;
+  margin: 6px 0 4px;
+}
+
+.rec-venue-address {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  color: var(--sage-mid);
   margin-bottom: 16px;
+}
+
+.savedate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
 .ics-btn {
@@ -880,12 +901,37 @@ body.doors-locked {
   font-weight: 500;
   letter-spacing: 0.08em;
   cursor: pointer;
+  text-decoration: none;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .ics-btn:hover {
   background: var(--sage-mid);
   border-color: var(--sage-mid);
+  transform: translateY(-1px);
+}
+
+.map-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  background: transparent;
+  color: var(--sage-deep);
+  border: 1px solid var(--sage-deep);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.map-action-btn:hover {
+  background: var(--sage-deep);
+  color: var(--pearl-white);
   transform: translateY(-1px);
 }
 
