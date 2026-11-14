@@ -335,20 +335,7 @@ body.doors-locked {
   display: block;
   width: 100%;
   height: auto;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    #000 1.5%,
-    #000 97%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    #000 1.5%,
-    #000 97%,
-    transparent 100%
-  );
+  border-radius: 4px;
 }
 
 .scripture-overlay {
