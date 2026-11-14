@@ -118,7 +118,7 @@ body.doors-locked {
 .door-left {
   left: 0;
   transform-origin: left center;
-  background-image: url('assets/door-left.jpg');
+  background-image: url('assets/door-left.jpg?v=2');
   background-position: right center;
   border-right: 1px solid rgba(196, 164, 78, 0.35);
   box-shadow: inset -6px 0 16px rgba(185, 145, 50, 0.12);
@@ -127,7 +127,7 @@ body.doors-locked {
 .door-right {
   right: 0;
   transform-origin: right center;
-  background-image: url('assets/door-right.jpg');
+  background-image: url('assets/door-right.jpg?v=2');
   background-position: left center;
   box-shadow: inset 6px 0 16px rgba(185, 145, 50, 0.1);
 }
