@@ -97,8 +97,8 @@ body.doors-locked {
 /* Responsive Android Phone Ratio & Container */
 .door-wrapper {
   position: relative;
-  width: min(100vw - 32px, 430px, calc((100vh - 48px) * (9 / 19.5)));
-  aspect-ratio: 9 / 19.5;
+  width: min(100vw - 32px, 440px, calc((100vh - 48px) * (962 / 1635)));
+  aspect-ratio: 962 / 1635;
   height: auto;
   max-height: calc(100vh - 48px);
   display: flex;
@@ -138,14 +138,14 @@ body.doors-locked {
 .door-left {
   left: 0;
   transform-origin: left center;
-  background-image: url('assets/door-left.jpg?v=4');
+  background-image: url('assets/door-left.jpg?v=5');
   background-position: right center;
 }
 
 .door-right {
   right: 0;
   transform-origin: right center;
-  background-image: url('assets/door-right.jpg?v=4');
+  background-image: url('assets/door-right.jpg?v=5');
   background-position: left center;
 }
 
