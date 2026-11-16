@@ -48,9 +48,25 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html.doors-locked,
 body.doors-locked {
-  overflow: hidden;
-  height: 100vh;
+  overflow: hidden !important;
+  height: 100% !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  touch-action: none !important;
+  overscroll-behavior: none !important;
+}
+
+/* Landing page is strictly hidden until the user taps to open */
+body.doors-locked #card-stage {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#card-stage {
+  transition: opacity 0.35s ease;
 }
 
 .hidden {
@@ -81,6 +97,8 @@ body.doors-locked {
   background: transparent;
   perspective: 1600px;
   overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
   transition: opacity 0.35s ease, visibility 0.35s ease;
 }
 

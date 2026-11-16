@@ -22,10 +22,23 @@ function initDoors() {
   const doorOverlay = document.getElementById('door-overlay');
   if (!doorOverlay) return;
 
+  // Strict scroll lock while doors are closed
+  document.documentElement.classList.add('doors-locked');
+  document.body.classList.add('doors-locked');
+
+  const preventScroll = (e) => {
+    if (document.body.classList.contains('doors-locked')) {
+      e.preventDefault();
+    }
+  };
+  window.addEventListener('wheel', preventScroll, { passive: false });
+  window.addEventListener('touchmove', preventScroll, { passive: false });
+
   const openDoors = () => {
-    if (doorOverlay.classList.contains('is-opening')) return;
+    if (doorOverlay.classList.contains('is-opening') || doorOverlay.classList.contains('is-opened')) return;
     doorOverlay.classList.add('is-opening');
     document.body.classList.remove('doors-locked');
+    document.documentElement.classList.remove('doors-locked');
 
     if (musicController && !musicController.isPlaying()) {
       musicController.start();
