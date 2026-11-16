@@ -94,16 +94,33 @@ body.doors-locked {
   visibility: hidden;
 }
 
+/* Responsive Android Phone Ratio & Container */
 .door-wrapper {
   position: relative;
-  width: min(100vw, 520px, calc(100vh * (602 / 1024)));
-  aspect-ratio: 602 / 1024;
+  width: min(100vw - 32px, 430px, calc((100vh - 48px) * (9 / 19.5)));
+  aspect-ratio: 9 / 19.5;
   height: auto;
-  max-height: 100vh;
+  max-height: calc(100vh - 48px);
   display: flex;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(37, 54, 34, 0.25);
-  border-radius: 4px;
+  box-shadow: 0 24px 70px rgba(37, 54, 34, 0.28), 0 0 0 1px rgba(180, 150, 76, 0.2);
+  border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+  .door-overlay {
+    padding: 0;
+    background: #FEF7DB;
+  }
+  .door-wrapper {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
+    aspect-ratio: auto;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 
 .door-panel {
@@ -113,23 +130,23 @@ body.doors-locked {
   width: 50%;
   transition: transform 0.85s cubic-bezier(0.35, 0, 0.25, 1);
   will-change: transform;
-  background-color: #FDF5CA;
-  background-size: 100% 100%;
+  background-color: #FEF7DB;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
 .door-left {
   left: 0;
   transform-origin: left center;
-  background-image: url('assets/door-left.jpg?v=3');
-  background-position: center;
+  background-image: url('assets/door-left.jpg?v=4');
+  background-position: right center;
 }
 
 .door-right {
   right: 0;
   transform-origin: right center;
-  background-image: url('assets/door-right.jpg?v=3');
-  background-position: center;
+  background-image: url('assets/door-right.jpg?v=4');
+  background-position: left center;
 }
 
 .door-overlay.is-opening .door-left {
