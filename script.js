@@ -36,7 +36,7 @@ function initDoors() {
 
     setTimeout(() => {
       doorOverlay.classList.add('is-opened');
-    }, 600);
+    }, 850);
   };
 
   doorOverlay.addEventListener('click', openDoors);

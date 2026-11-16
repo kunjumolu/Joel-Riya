@@ -78,10 +78,10 @@ body.doors-locked {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: transparent;
+  background: radial-gradient(circle at center, #faf6e5 0%, #ebe4c8 100%);
   perspective: 1600px;
   overflow: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s ease;
 }
 
 .door-overlay.is-opening {
@@ -96,11 +96,14 @@ body.doors-locked {
 
 .door-wrapper {
   position: relative;
-  width: 100%;
-  max-width: 540px;
-  height: 100%;
+  width: min(100vw, 520px, calc(100vh * (602 / 1024)));
+  aspect-ratio: 602 / 1024;
+  height: auto;
+  max-height: 100vh;
   display: flex;
   overflow: hidden;
+  box-shadow: 0 20px 60px rgba(37, 54, 34, 0.25);
+  border-radius: 4px;
 }
 
 .door-panel {
@@ -111,25 +114,22 @@ body.doors-locked {
   transition: transform 0.85s cubic-bezier(0.35, 0, 0.25, 1);
   will-change: transform;
   background-color: #FDF5CA;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 .door-left {
   left: 0;
   transform-origin: left center;
-  background-image: url('assets/door-left.jpg?v=2');
-  background-position: right center;
-  border-right: 1px solid rgba(196, 164, 78, 0.35);
-  box-shadow: inset -6px 0 16px rgba(185, 145, 50, 0.12);
+  background-image: url('assets/door-left.jpg?v=3');
+  background-position: center;
 }
 
 .door-right {
   right: 0;
   transform-origin: right center;
-  background-image: url('assets/door-right.jpg?v=2');
-  background-position: left center;
-  box-shadow: inset 6px 0 16px rgba(185, 145, 50, 0.1);
+  background-image: url('assets/door-right.jpg?v=3');
+  background-position: center;
 }
 
 .door-overlay.is-opening .door-left {
