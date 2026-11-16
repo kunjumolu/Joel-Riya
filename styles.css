@@ -305,27 +305,46 @@ body.doors-locked {
 
 .hero-header {
   position: absolute;
-  top: max(32px, env(safe-area-inset-top, 32px));
+  top: max(26px, env(safe-area-inset-top, 26px));
   left: 0;
   right: 0;
   z-index: 6;
   text-align: center;
   padding: 0 16px;
   pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
 
 .hero-wedding-of {
   display: inline-block;
-  font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 5.2vw, 1.95rem);
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #24361f;
+  font-family: var(--font-script), 'Great Vibes', 'Alex Brush', cursive;
+  font-size: clamp(2.15rem, 7.8vw, 2.95rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  color: #2b3b25;
+  -webkit-text-stroke: 0.5px #2b3b25;
   text-shadow:
-    0 1px 3px rgba(255, 255, 255, 0.95),
-    0 2px 10px rgba(253, 245, 220, 0.9);
-  line-height: 1.2;
+    0 1px 2px rgba(255, 255, 255, 0.95),
+    0 2px 10px rgba(254, 246, 222, 0.95);
+  line-height: 1.15;
+}
+
+.hero-heart-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -4px;
+  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.85));
+}
+
+.hero-heart-svg {
+  width: 62px;
+  height: 20px;
+  display: block;
 }
 
 .hero-img {
