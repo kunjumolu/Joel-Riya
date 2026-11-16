@@ -78,20 +78,22 @@ body.doors-locked {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: radial-gradient(circle at center, #faf6e5 0%, #ebe4c8 100%);
+  background: transparent;
   perspective: 1600px;
   overflow: hidden;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s ease;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
 }
 
 .door-overlay.is-opening {
   pointer-events: none;
+  background: transparent !important;
 }
 
 .door-overlay.is-opened {
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
+  display: none !important;
 }
 
 /* Responsive Android Phone Ratio & Container */
@@ -110,7 +112,7 @@ body.doors-locked {
 @media (max-width: 600px) {
   .door-overlay {
     padding: 0;
-    background: #FEF7DB;
+    background: transparent;
   }
   .door-wrapper {
     width: 100vw;
@@ -128,9 +130,9 @@ body.doors-locked {
   top: 0;
   bottom: 0;
   width: 50%;
-  transition: transform 0.85s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: transform 0.52s cubic-bezier(0.2, 0.9, 0.3, 1);
   will-change: transform;
-  background-color: #FEF7DB;
+  background-color: transparent;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -150,11 +152,11 @@ body.doors-locked {
 }
 
 .door-overlay.is-opening .door-left {
-  transform: translateX(-102%) rotateY(18deg);
+  transform: translateX(-105%) rotateY(16deg);
 }
 
 .door-overlay.is-opening .door-right {
-  transform: translateX(102%) rotateY(-18deg);
+  transform: translateX(105%) rotateY(-16deg);
 }
 
 /* ==========================================================================
