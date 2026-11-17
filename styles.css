@@ -908,16 +908,18 @@ body.doors-locked #card-stage {
 .savedate-illustration-wrap {
   position: relative;
   width: 100%;
-  max-width: 360px;
-  margin: 16px auto 0;
+  max-width: 260px;
+  margin: 14px auto 0;
 }
 
 .dancing-couple-img {
   display: block;
   width: 100%;
+  max-height: 200px;
   height: auto;
+  object-fit: contain;
   margin: 0 auto;
-  filter: drop-shadow(0 6px 18px rgba(55, 75, 51, 0.12));
+  filter: drop-shadow(0 4px 12px rgba(55, 75, 51, 0.1));
 }
 
 .date-label-tag {
