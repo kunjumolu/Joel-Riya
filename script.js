@@ -89,16 +89,16 @@ function initScrollReveal() {
    -------------------------------------------------------------------------- */
 const DRESS_CODE_DATA = {
   wedding: {
-    eventLabel: 'WEDDING · PASTEL SHADES & KASAVU',
+    eventLabel: 'WEDDING ·',
     men: {
       title: 'Men’s Wedding Attire',
       description:
-        'White, beige, powder blue shirts, or kasavu jubbah paired with black, brown, grey, or kasavu pants.',
+        'White, beige, or kasavu jubbah paired with black, brown, grey, or kasavu pants.',
       swatches: [
         { label: 'White', hex: '#FFFFFF' },
         { label: 'Beige', hex: '#EAE1CE' },
-        { label: 'Powder Blue', hex: '#ADC8DD' },
-        { label: 'Kasavu Gold', hex: '#C8AD67' },
+        // { label: 'Powder Blue', hex: '#ADC8DD' },
+        { label: 'Kasavu Gold', hex: '#d2b876ff' },
         { label: 'Black Pants', hex: '#232323' },
         { label: 'Brown Pants', hex: '#5D4037' },
         { label: 'Grey Pants', hex: '#757B82' }
@@ -125,8 +125,8 @@ const DRESS_CODE_DATA = {
     },
     kids: {
       title: 'Kids’ Wedding Attire',
-      description:
-        'Pastel shades in any colour — dress for girls, shorts and t-shirt for boys.',
+      // description:
+      //   'Pastel shades in any colour — dress for girls, shorts and t-shirt for boys.',
       swatches: [
         { label: 'Pastel Pink', hex: '#F7CDD5' },
         { label: 'Soft Sage', hex: '#B5CBB0' },
@@ -211,7 +211,7 @@ function initDressCodeModal() {
     }
 
     titleEl.textContent = data.title;
-    descEl.textContent = data.description;
+    descEl.textContent = data.description || '';
 
     swatchesEl.innerHTML = data.swatches
       .map(
@@ -350,7 +350,7 @@ function initRsvpForm() {
         updateMessage(savedChoice);
       }
     }
-  } catch {}
+  } catch { }
 
   // Handle Form Submission
   form.addEventListener('submit', async (e) => {
@@ -383,7 +383,7 @@ function initRsvpForm() {
     try {
       localStorage.setItem(STORAGE_NAME_KEY, name);
       localStorage.setItem(STORAGE_KEY, attendance);
-    } catch {}
+    } catch { }
 
     // Send to Google Sheets if Script URL is configured
     if (GOOGLE_RSVP_SCRIPT_URL && GOOGLE_RSVP_SCRIPT_URL.trim().length > 0) {
