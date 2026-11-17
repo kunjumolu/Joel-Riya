@@ -1416,14 +1416,16 @@ body.doors-locked #card-stage {
 
 .compliments-title {
   font-family: var(--font-serif);
-  font-size: 1.95rem;
+  font-size: 1.85rem;
   font-weight: 500;
-  color: var(--sage-deep);
+  font-style: italic;
+  color: #000000;
+  letter-spacing: 0.01em;
 }
 
-.italic-accent {
+.compliments-title .italic-accent {
   font-style: italic;
-  color: var(--gold-antique);
+  color: #000000;
 }
 
 .compliments-name {
