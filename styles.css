@@ -800,8 +800,8 @@ body.doors-locked #card-stage {
 
 .dress-wedding-wrap {
   width: 100%;
-  max-width: 290px;
-  margin: 8px auto 16px;
+  max-width: 220px;
+  margin: 6px auto 14px;
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
@@ -810,7 +810,7 @@ body.doors-locked #card-stage {
 .dress-wedding-img {
   display: block;
   width: 100%;
-  max-height: 290px;
+  max-height: 225px;
   height: auto;
   object-fit: contain;
   margin: 0 auto;
