@@ -158,14 +158,14 @@ body.doors-locked #card-stage {
 .door-left {
   left: 0;
   transform-origin: left center;
-  background-image: url('assets/door-left.jpg?v=6');
+  background-image: url('assets/door-left.jpg?v=7');
   background-position: right center;
 }
 
 .door-right {
   right: 0;
   transform-origin: right center;
-  background-image: url('assets/door-right.jpg?v=6');
+  background-image: url('assets/door-right.jpg?v=7');
   background-position: left center;
 }
 
