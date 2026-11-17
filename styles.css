@@ -1088,6 +1088,10 @@ body.doors-locked #card-stage {
   color: var(--gold-antique);
 }
 
+.venue-item .directions-link {
+  margin-top: 14px;
+}
+
 /* ==========================================================================
    SECTION 8: TIME & DIRECTION (Reference 9.jpg)
    ========================================================================== */
