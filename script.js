@@ -307,7 +307,7 @@ function initCalendarDownload() {
    5. Interactive RSVP Form & Google Sheets Connection
    -------------------------------------------------------------------------- */
 // Once you deploy the Google Apps Script Web App, paste its URL below:
-const GOOGLE_RSVP_SCRIPT_URL = '';
+const GOOGLE_RSVP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwPdz_xHlv2ByL9lPk0CUgCKrMse-cAhjHuep1B7C-RNR0bc5g8JSWpG052hUXhg8QB/exec';
 
 function initRsvpForm() {
   const form = document.getElementById('rsvp-form');
@@ -388,14 +388,22 @@ function initRsvpForm() {
     // Send to Google Sheets if Script URL is configured
     if (GOOGLE_RSVP_SCRIPT_URL && GOOGLE_RSVP_SCRIPT_URL.trim().length > 0) {
       try {
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('attendance', attendance);
+        const payload = new URLSearchParams();
+        payload.append('name', name);
+        payload.append('attendance', attendance);
 
-        await fetch(GOOGLE_RSVP_SCRIPT_URL, {
+        // Include query parameters for maximum Google Apps Script compatibility
+        const requestUrl = new URL(GOOGLE_RSVP_SCRIPT_URL);
+        requestUrl.searchParams.set('name', name);
+        requestUrl.searchParams.set('attendance', attendance);
+
+        await fetch(requestUrl.toString(), {
           method: 'POST',
           mode: 'no-cors',
-          body: formData
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: payload.toString()
         });
       } catch (err) {
         console.error('Google Sheet RSVP submission error:', err);
