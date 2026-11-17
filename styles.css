@@ -798,6 +798,30 @@ body.doors-locked #card-stage {
   margin: 12px auto 16px;
 }
 
+.dress-wedding-wrap {
+  width: 100%;
+  max-width: 290px;
+  margin: 8px auto 16px;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.dress-wedding-img {
+  display: block;
+  width: 100%;
+  max-height: 290px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  filter: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
 .dresscode-crest-wrap {
   max-width: 340px;
   margin: 10px auto 14px;
