@@ -1335,6 +1335,50 @@ body.doors-locked #card-stage {
   gap: 16px;
 }
 
+.rsvp-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.rsvp-input-label {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--sage-deep);
+  text-align: center;
+}
+
+.rsvp-name-input {
+  width: 100%;
+  padding: 13px 18px;
+  font-family: var(--font-serif);
+  font-size: 1.22rem;
+  color: var(--sage-deep);
+  background: rgba(255, 253, 245, 0.9);
+  border: 1px solid rgba(180, 150, 76, 0.45);
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.25s ease;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(55, 75, 51, 0.04);
+}
+
+.rsvp-name-input:focus {
+  border-color: var(--gold-antique);
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(180, 150, 76, 0.2);
+}
+
+.rsvp-name-input::placeholder {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: rgba(94, 119, 83, 0.55);
+  font-size: 1.05rem;
+}
+
 .rsvp-options {
   display: flex;
   flex-direction: column;
@@ -1419,6 +1463,76 @@ body.doors-locked #card-stage {
   font-size: 1.08rem;
   color: var(--sage-deep);
   margin: 0;
+}
+
+.rsvp-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px 24px;
+  margin-top: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #fffdf5;
+  background: linear-gradient(135deg, #7a9170 0%, #4f6844 100%);
+  border: 1px solid rgba(180, 150, 76, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(39, 54, 35, 0.18);
+  transition: all 0.25s ease;
+}
+
+.rsvp-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(39, 54, 35, 0.28);
+  background: linear-gradient(135deg, #8ba380 0%, #5a754e 100%);
+  border-color: var(--gold-antique);
+}
+
+.rsvp-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: rsvpSpin 0.7s linear infinite;
+}
+
+@keyframes rsvpSpin {
+  to { transform: rotate(360deg); }
+}
+
+.rsvp-status {
+  padding: 14px 18px;
+  border-radius: 4px;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1.45;
+  transition: all 0.3s ease;
+}
+
+.rsvp-status.success {
+  background: rgba(122, 145, 112, 0.2);
+  border: 1px solid var(--sage-mid);
+  color: var(--sage-deep);
+}
+
+.rsvp-status.error {
+  background: rgba(180, 50, 50, 0.1);
+  border: 1px solid rgba(180, 50, 50, 0.3);
+  color: #8b1d2e;
+  font-size: 1rem;
 }
 
 /* ==========================================================================

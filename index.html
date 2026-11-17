@@ -41,7 +41,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Pinyon+Script&family=Alex+Brush&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="preload" as="image" href="assets/couple-embroidery.jpg?v=2" />
-  <link rel="stylesheet" href="styles.css?v=36" />
+  <link rel="stylesheet" href="styles.css?v=37" />
 </head>
 
 <body class="doors-locked">
@@ -599,9 +599,15 @@
           Please let us know if you'll be joining us on our special day!
         </h2>
         <div class="gold-divider"></div>
-        <p class="rsvp-question">Will you be joining us?</p>
+        <form id="rsvp-form" class="rsvp-options-wrap" novalidate>
+          <div class="rsvp-input-group">
+            <label for="rsvp-name" class="rsvp-input-label">Your Name</label>
+            <input type="text" id="rsvp-name" name="name" class="rsvp-name-input"
+              placeholder="Enter your name / family name" required autocomplete="name" />
+          </div>
 
-        <div class="rsvp-options-wrap">
+          <p class="rsvp-question">Will you be joining us?</p>
+
           <div class="rsvp-options">
             <label class="rsvp-option-card" for="opt-coming">
               <input type="radio" id="opt-coming" name="attendance" value="coming" checked />
@@ -618,7 +624,14 @@
           <div class="rsvp-note-badge" id="rsvp-note-badge">
             <p id="rsvp-note-text">We look forward to celebrating with you! ✨</p>
           </div>
-        </div>
+
+          <button type="submit" id="rsvp-submit-btn" class="rsvp-submit-btn">
+            <span class="btn-text">SUBMIT RSVP</span>
+            <span class="btn-spinner hidden" aria-hidden="true"></span>
+          </button>
+
+          <div id="rsvp-status-message" class="rsvp-status hidden" role="status"></div>
+        </form>
       </section>
 
       <!-- SECTION 8: BEST COMPLIMENTS & FOOTER (Reference 11.jpg) -->
@@ -678,7 +691,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=11"></script>
 </body>
 
 </html>
