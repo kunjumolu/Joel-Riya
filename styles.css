@@ -798,6 +798,21 @@ body.doors-locked #card-stage {
   margin: 12px auto 16px;
 }
 
+.dresscode-crest-wrap {
+  max-width: 340px;
+  margin: 10px auto 14px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.dresscode-crest-img {
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
 .dresscode-subtitle {
   font-style: italic;
   font-size: 1.15rem;
@@ -1539,7 +1554,9 @@ body.doors-locked #card-stage {
 .palette-swatches {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-bottom: 18px;
 }
 
@@ -1548,20 +1565,23 @@ body.doors-locked #card-stage {
   flex-direction: column;
   align-items: center;
   gap: 5px;
+  min-width: 44px;
 }
 
 .swatch-dot {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 2px solid #fffdf5;
-  box-shadow: 0 2px 6px rgba(39, 54, 35, 0.2);
+  box-shadow: 0 2px 6px rgba(39, 54, 35, 0.2), inset 0 0 0 1px rgba(138, 118, 67, 0.25);
 }
 
 .swatch-label {
   font-family: var(--font-sans);
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   color: var(--sage-mid);
+  text-align: center;
+  line-height: 1.2;
 }
 
 .modal-tips {

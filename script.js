@@ -85,62 +85,115 @@ function initScrollReveal() {
 }
 
 /* --------------------------------------------------------------------------
-   3. Dress Code Modal (Pale Yellow & Sage Green Theme)
+   3. Dress Code Modal (Wedding & Reception Themes)
    -------------------------------------------------------------------------- */
 const DRESS_CODE_DATA = {
-  men: {
-    title: 'Men’s Attire',
-    description:
-      'Classic tailored suits, linen blazers, or crisp kurtas in soothing sage green, olive, cream, and soft butter-yellow accents.',
-    swatches: [
-      { label: 'Sage Mist', hex: '#8fa682' },
-      { label: 'Olive Moss', hex: '#5e7753' },
-      { label: 'Ivory Linen', hex: '#f8f3dc' },
-      { label: 'Butter Cream', hex: '#f1df9a' }
-    ],
-    tips: [
-      'Sage or olive linen suits paired with an ivory shirt',
-      'Warm cream mundu / kurta with a pale yellow or sage pocket square',
-      'Tan, cognac, or classic espresso leather footwear'
-    ]
+  wedding: {
+    eventLabel: 'WEDDING · PASTEL SHADES & KASAVU',
+    men: {
+      title: 'Men’s Wedding Attire',
+      description:
+        'White, beige, powder blue shirts, or kasavu jubbah paired with black, brown, grey, or kasavu pants.',
+      swatches: [
+        { label: 'White', hex: '#FFFFFF' },
+        { label: 'Beige', hex: '#EAE1CE' },
+        { label: 'Powder Blue', hex: '#ADC8DD' },
+        { label: 'Kasavu Gold', hex: '#C8AD67' },
+        { label: 'Black Pants', hex: '#232323' },
+        { label: 'Brown Pants', hex: '#5D4037' },
+        { label: 'Grey Pants', hex: '#757B82' }
+      ],
+      tips: [
+        'Shirts: White / beige / powder blue shirts / kasavu jubbah',
+        'Pants: Black / brown / grey / kasavu pants'
+      ]
+    },
+    women: {
+      title: 'Women’s Wedding Attire',
+      description:
+        'Graceful pastel pink, green, beige, or kasavu — sarees, kurtis, or gowns.',
+      swatches: [
+        { label: 'Pastel Pink', hex: '#F6C6CF' },
+        { label: 'Pastel Green', hex: '#9BB293' },
+        { label: 'Beige', hex: '#EDE4D2' },
+        { label: 'Kasavu Gold', hex: '#C8AD67' }
+      ],
+      tips: [
+        'Pastel pink / green / beige / kasavu',
+        'Sarees / kurtis / gowns'
+      ]
+    },
+    kids: {
+      title: 'Kids’ Wedding Attire',
+      description:
+        'Pastel shades in any colour — dress for girls, shorts and t-shirt for boys.',
+      swatches: [
+        { label: 'Pastel Pink', hex: '#F7CDD5' },
+        { label: 'Soft Sage', hex: '#B5CBB0' },
+        { label: 'Powder Blue', hex: '#B9D5E8' },
+        { label: 'Pale Yellow', hex: '#FBEEAE' },
+        { label: 'Cream', hex: '#FAF4E3' }
+      ],
+      tips: [
+        'Girls: Dress / frocks in any pastel colour',
+        'Boys: Shorts and t-shirt',
+        'Any cheerful pastel shade of your choice'
+      ]
+    }
   },
-  women: {
-    title: 'Women’s Attire',
-    description:
-      'Graceful silk sarees, organza drapes, lehengas, or evening gowns in pale butter-yellow, pastel lemon, and botanical sage green.',
-    swatches: [
-      { label: 'Pale Yellow', hex: '#f3e4a8' },
-      { label: 'Soft Lemon', hex: '#f8efc4' },
-      { label: 'Sage Leaf', hex: '#94aa87' },
-      { label: 'Gold Thread', hex: '#c8ad67' }
-    ],
-    tips: [
-      'Tissue kasavu, pastel yellow silk, or sage organza sarees',
-      'Pearl, antique gold, or delicate floral jewellery accents',
-      'Breathable flowing silhouettes ideal for Kerala’s festive evenings'
-    ]
-  },
-  kids: {
-    title: 'Kids’ Attire',
-    description:
-      'Playful, comfortable festive outfits blending butter-yellow florals, soft ivory linen, and gentle sage green tones.',
-    swatches: [
-      { label: 'Buttercup', hex: '#f5e6ab' },
-      { label: 'Cream Silk', hex: '#faf5df' },
-      { label: 'Sprout Green', hex: '#a5b89a' },
-      { label: 'Warm Gold', hex: '#d6c080' }
-    ],
-    tips: [
-      'Pastel yellow frocks, pattu pavadai, or floral linen dresses',
-      'Sage green waistcoats or crisp ivory shirt & trouser sets',
-      'Soft comfortable shoes ready for dancing and celebration'
-    ]
+  reception: {
+    eventLabel: 'RECEPTION · 5 JAN · DARK SHADES',
+    men: {
+      title: 'Men’s Reception Attire',
+      description: 'Sophisticated evening wear featuring dark shade shirts and pants.',
+      swatches: [
+        { label: 'Dark Navy', hex: '#162238' },
+        { label: 'Black', hex: '#1C1C1C' },
+        { label: 'Deep Maroon', hex: '#441420' },
+        { label: 'Dark Grey', hex: '#373E47' }
+      ],
+      tips: [
+        'Shirts: Dark shade shirt (navy, black, maroon, dark grey)',
+        'Pants: Dark shade formal or semi-formal pants'
+      ]
+    },
+    women: {
+      title: 'Women’s Reception Attire',
+      description:
+        'Glamorous evening attire in rich dark shades — navy blue, red, black, maroon, or violet in any format.',
+      swatches: [
+        { label: 'Navy Blue', hex: '#14254B' },
+        { label: 'Red', hex: '#991B1B' },
+        { label: 'Black', hex: '#1C1C1C' },
+        { label: 'Maroon', hex: '#4E1220' },
+        { label: 'Violet', hex: '#431952' }
+      ],
+      tips: [
+        'Colours: Navy blue / red / black / maroon / violet',
+        'Format: Any format (sarees, kurtis, gowns, western formals, etc.)'
+      ]
+    },
+    kids: {
+      title: 'Kids’ Reception Attire',
+      description: 'Smart evening partywear in any stylish dark shade.',
+      swatches: [
+        { label: 'Dark Navy', hex: '#1B2A47' },
+        { label: 'Deep Maroon', hex: '#4E1624' },
+        { label: 'Velvet Black', hex: '#1E1E1E' },
+        { label: 'Deep Violet', hex: '#3B1B45' }
+      ],
+      tips: [
+        'Any dark shade of your choice',
+        'Evening party frocks, dark shirts, or stylish coordinates'
+      ]
+    }
   }
 };
 
 function initDressCodeModal() {
   const modal = document.getElementById('dresscode-modal');
   const closeBtn = document.getElementById('close-modal-btn');
+  const roleLabelEl = document.getElementById('modal-role-label');
   const titleEl = document.getElementById('modal-title');
   const descEl = document.getElementById('modal-description');
   const swatchesEl = document.getElementById('modal-swatches');
@@ -148,9 +201,14 @@ function initDressCodeModal() {
 
   if (!modal) return;
 
-  const openModal = (group) => {
-    const data = DRESS_CODE_DATA[group];
+  const openModal = (group, eventType = 'wedding') => {
+    const eventData = DRESS_CODE_DATA[eventType] || DRESS_CODE_DATA.wedding;
+    const data = eventData[group];
     if (!data) return;
+
+    if (roleLabelEl && eventData.eventLabel) {
+      roleLabelEl.textContent = eventData.eventLabel;
+    }
 
     titleEl.textContent = data.title;
     descEl.textContent = data.description;
@@ -172,7 +230,13 @@ function initDressCodeModal() {
   const closeModal = () => modal.classList.add('hidden');
 
   document.querySelectorAll('.dresscode-card').forEach((btn) => {
-    btn.addEventListener('click', () => openModal(btn.dataset.group));
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.group;
+      const eventType =
+        btn.dataset.event ||
+        (btn.closest('#dresscode-reception') ? 'reception' : 'wedding');
+      openModal(group, eventType);
+    });
   });
 
   closeBtn.addEventListener('click', closeModal);
