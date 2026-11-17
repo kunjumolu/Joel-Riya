@@ -499,97 +499,110 @@ function initPetalsCanvas() {
 }
 
 /* --------------------------------------------------------------------------
-   7. Gentle Web-Audio Harp Melody (No External Audio File Required)
+   7. Ambient Wedding Music (music.mp3 with Smooth Gradual Volume Rise)
    -------------------------------------------------------------------------- */
 function initAmbientMusic() {
   const toggleBtn = document.getElementById('sound-toggle');
   const iconOff = document.getElementById('icon-sound-off');
   const iconOn = document.getElementById('icon-sound-on');
-  if (!toggleBtn) return;
+  let audio = document.getElementById('wedding-music');
 
-  let audioCtx = null;
-  let playing = false;
-  let timerId = null;
-  let stepIndex = 0;
+  if (!audio) {
+    audio = new Audio('assets/music.mp3');
+    audio.id = 'wedding-music';
+    audio.preload = 'auto';
+    audio.loop = true;
+    document.body.appendChild(audio);
+  } else {
+    audio.loop = true;
+  }
 
-  // Soft F-major / D-minor warm harp arpeggio notes (Hz)
-  const melody = [
-    349.23, 440.0, 523.25, 659.25,
-    587.33, 523.25, 440.0, 392.0,
-    349.23, 440.0, 523.25, 698.46,
-    659.25, 587.33, 523.25, 440.0
-  ];
+  let isPlaying = false;
+  let fadeInterval = null;
+  const TARGET_VOLUME = 0.75;
+  const FADE_IN_DURATION_MS = 4000; // 4 seconds gradual volume rise
+  const FADE_STEP_MS = 50;
+  const VOLUME_INCREMENT = TARGET_VOLUME / (FADE_IN_DURATION_MS / FADE_STEP_MS);
 
-  const playNote = (freq) => {
-    if (!audioCtx || !playing) return;
-    const now = audioCtx.currentTime;
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(freq, now);
-
-    gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(0.032, now + 0.08);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.1);
-
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.start(now);
-    osc.stop(now + 2.2);
+  const updateIcon = (active) => {
+    if (toggleBtn) {
+      toggleBtn.setAttribute('aria-pressed', String(active));
+    }
+    if (iconOff) iconOff.classList.toggle('hidden', active);
+    if (iconOn) iconOn.classList.toggle('hidden', !active);
   };
 
-  const updateIcon = () => {
-    toggleBtn.setAttribute('aria-pressed', String(playing));
-    iconOff.classList.toggle('hidden', playing);
-    iconOn.classList.toggle('hidden', !playing);
+  const fadeIn = () => {
+    if (fadeInterval) clearInterval(fadeInterval);
+    audio.volume = 0;
+    fadeInterval = setInterval(() => {
+      if (!isPlaying) {
+        clearInterval(fadeInterval);
+        return;
+      }
+      if (audio.volume + VOLUME_INCREMENT >= TARGET_VOLUME) {
+        audio.volume = TARGET_VOLUME;
+        clearInterval(fadeInterval);
+        fadeInterval = null;
+      } else {
+        audio.volume = Math.min(TARGET_VOLUME, audio.volume + VOLUME_INCREMENT);
+      }
+    }, FADE_STEP_MS);
+  };
+
+  const fadeOut = (callback) => {
+    if (fadeInterval) clearInterval(fadeInterval);
+    const FADE_OUT_DURATION_MS = 600;
+    const VOLUME_DECREMENT = audio.volume / (FADE_OUT_DURATION_MS / FADE_STEP_MS);
+    fadeInterval = setInterval(() => {
+      if (audio.volume - VOLUME_DECREMENT <= 0.01) {
+        audio.volume = 0;
+        clearInterval(fadeInterval);
+        fadeInterval = null;
+        audio.pause();
+        if (callback) callback();
+      } else {
+        audio.volume = Math.max(0, audio.volume - VOLUME_DECREMENT);
+      }
+    }, FADE_STEP_MS);
   };
 
   const start = () => {
-    if (playing) return;
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContextClass) return;
+    if (isPlaying) return;
+    isPlaying = true;
+    updateIcon(true);
 
-    if (!audioCtx) {
-      audioCtx = new AudioContextClass();
-    }
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-
-    playing = true;
-    updateIcon();
-
-    playNote(melody[stepIndex % melody.length]);
-    stepIndex++;
-
-    timerId = setInterval(() => {
-      playNote(melody[stepIndex % melody.length]);
-      stepIndex++;
-    }, 950);
+    audio.play().then(() => {
+      fadeIn();
+    }).catch((err) => {
+      console.warn('Audio playback waiting for user gesture:', err);
+      isPlaying = false;
+      updateIcon(false);
+    });
   };
 
   const stop = () => {
-    playing = false;
-    if (timerId) {
-      clearInterval(timerId);
-      timerId = null;
-    }
-    updateIcon();
+    if (!isPlaying) return;
+    isPlaying = false;
+    updateIcon(false);
+    fadeOut();
   };
 
-  toggleBtn.addEventListener('click', () => {
-    if (playing) {
-      stop();
-    } else {
-      start();
-    }
-  });
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isPlaying) {
+        stop();
+      } else {
+        start();
+      }
+    });
+  }
 
   musicController = {
     start,
     stop,
-    isPlaying: () => playing
+    isPlaying: () => isPlaying
   };
 }
 
