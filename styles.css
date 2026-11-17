@@ -303,8 +303,9 @@ body.doors-locked #card-stage {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  background-color: #ECDAC4;
-  background: linear-gradient(180deg, #ECDAC4 0%, #DED6C4 60%, #C4C091 100%);
+  justify-content: center;
+  background-color: var(--linen-light);
+  background: var(--linen-light);
   position: relative;
 }
 
@@ -323,7 +324,7 @@ body.doors-locked #card-stage {
 
 .hero-header {
   position: absolute;
-  top: max(26px, env(safe-area-inset-top, 26px));
+  top: max(22px, env(safe-area-inset-top, 22px));
   left: 0;
   right: 0;
   z-index: 6;
@@ -488,7 +489,7 @@ body.doors-locked #card-stage {
 
 .stitched-couple-names {
   position: absolute;
-  bottom: 8.5%;
+  bottom: max(62px, 9.5%);
   left: 50%;
   transform: translateX(-50%);
   width: 88%;
