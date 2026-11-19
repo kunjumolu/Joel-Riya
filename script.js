@@ -93,33 +93,58 @@ const DRESS_CODE_DATA = {
     men: {
       title: 'Men’s Wedding Attire',
       description:
-        'White, beige, or kasavu jubbah paired with black, brown, grey, or kasavu pants.',
+        'White, beige, pastel green, pastel pink shirts, or kasavu jubbah paired with black, brown, grey, or kasavu pants.',
+      swatchGroups: [
+        {
+          groupLabel: 'Shirts & Jubbah',
+          swatches: [
+            { label: 'White', hex: '#FFFFFF' },
+            { label: 'Beige', hex: '#EDE4D2' },
+            { label: 'Pastel Green', hex: '#A2C29D' },
+            { label: 'Pastel Pink', hex: '#F6C6CF' },
+            { label: 'Kasavu Gold', hex: '#D2B876' }
+          ]
+        },
+        {
+          groupLabel: 'Pants',
+          swatches: [
+            { label: 'Black', hex: '#232323' },
+            { label: 'Brown', hex: '#5D4037' },
+            { label: 'Grey', hex: '#757B82' },
+            { label: 'Kasavu', hex: '#D2B876' }
+          ]
+        }
+      ],
       swatches: [
         { label: 'White', hex: '#FFFFFF' },
-        { label: 'Beige', hex: '#EAE1CE' },
-        // { label: 'Powder Blue', hex: '#ADC8DD' },
-        { label: 'Kasavu Gold', hex: '#d2b876ff' },
-        { label: 'Black Pants', hex: '#232323' },
-        { label: 'Brown Pants', hex: '#5D4037' },
-        { label: 'Grey Pants', hex: '#757B82' }
+        { label: 'Beige', hex: '#EDE4D2' },
+        { label: 'Pastel Green', hex: '#A2C29D' },
+        { label: 'Pastel Pink', hex: '#F6C6CF' },
+        { label: 'Kasavu Gold', hex: '#D2B876' },
+        { label: 'Black', hex: '#232323' },
+        { label: 'Brown', hex: '#5D4037' },
+        { label: 'Grey', hex: '#757B82' },
+        { label: 'Kasavu', hex: '#D2B876' }
       ],
       tips: [
-        'Shirts: White / beige / powder blue shirts / kasavu jubbah',
+        'Shirts: White / beige / pastel green / pastel pink / kasavu jubbah',
         'Pants: Black / brown / grey / kasavu pants'
       ]
     },
     women: {
       title: 'Women’s Wedding Attire',
       description:
-        'Graceful pastel pink, green, beige, or kasavu — sarees, kurtis, or gowns.',
+        'Graceful pastel pink, pastel green, beige, silver, mocha brown, or kasavu — sarees, kurtis, or gowns.',
       swatches: [
         { label: 'Pastel Pink', hex: '#F6C6CF' },
         { label: 'Pastel Green', hex: '#9BB293' },
         { label: 'Beige', hex: '#EDE4D2' },
+        { label: 'Silver', hex: '#C5C9D0' },
+        { label: 'Mocha Brown', hex: '#7B5844' },
         { label: 'Kasavu Gold', hex: '#C8AD67' }
       ],
       tips: [
-        'Pastel pink / green / beige / kasavu',
+        'Pastel pink / pastel green / beige / silver / mocha brown / kasavu',
         'Sarees / kurtis / gowns'
       ]
     },
@@ -213,15 +238,37 @@ function initDressCodeModal() {
     titleEl.textContent = data.title;
     descEl.textContent = data.description || '';
 
-    swatchesEl.innerHTML = data.swatches
-      .map(
-        (s) => `
-      <div class="swatch-item">
-        <span class="swatch-dot" style="background:${s.hex}"></span>
-        <span class="swatch-label">${s.label}</span>
-      </div>`
-      )
-      .join('');
+    if (data.swatchGroups && data.swatchGroups.length > 0) {
+      swatchesEl.innerHTML = data.swatchGroups
+        .map(
+          (group) => `
+        <div class="swatch-group">
+          ${group.groupLabel ? `<div class="swatch-group-title"><span>${group.groupLabel}</span></div>` : ''}
+          <div class="swatch-group-row">
+            ${group.swatches
+              .map(
+                (s) => `
+              <div class="swatch-item">
+                <span class="swatch-dot" style="background:${s.hex}"></span>
+                <span class="swatch-label">${s.label}</span>
+              </div>`
+              )
+              .join('')}
+          </div>
+        </div>`
+        )
+        .join('');
+    } else {
+      swatchesEl.innerHTML = (data.swatches || [])
+        .map(
+          (s) => `
+        <div class="swatch-item">
+          <span class="swatch-dot" style="background:${s.hex}"></span>
+          <span class="swatch-label">${s.label}</span>
+        </div>`
+        )
+        .join('');
+    }
 
     tipsEl.innerHTML = data.tips.map((t) => `<li>${t}</li>`).join('');
     modal.classList.remove('hidden');
