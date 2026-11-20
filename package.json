@@ -1,7 +1,7 @@
 {
   "name": "wedding-invitation",
   "version": "1.0.0",
-  "description": "Wedding Invitation of Dr. Riya Mary Mathew and Joel George",
+  "description": "Wedding Invitation of Joel George and Dr. Riya Mary Mathew",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

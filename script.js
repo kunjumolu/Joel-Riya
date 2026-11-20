@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Dr. Riya Mary Mathew & Joel George — Digital Wedding Card Interactions
+   Joel George & Dr. Riya Mary Mathew — Digital Wedding Card Interactions
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -306,32 +306,32 @@ function initCalendarDownload() {
     const icsContent = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//RiyaAndJoel//WeddingInvitation//EN',
+      'PRODID:-//JoelAndRiya//WeddingInvitation//EN',
       'CALSCALE:GREGORIAN',
       'BEGIN:VEVENT',
-      'UID:riya-joel-wedding-20270103@weddingcard',
+      'UID:joel-riya-wedding-20270103@weddingcard',
       'DTSTAMP:20261112T090000Z',
       'DTSTART:20270103T050000Z',
       'DTEND:20270103T070000Z',
-      "SUMMARY:Wedding — Dr. Riya Mary Mathew & Joel George",
+      "SUMMARY:Wedding — Joel George & Dr. Riya Mary Mathew",
       "LOCATION:St. Mary's Orthodox Church, Vazhathope",
       'DESCRIPTION:Wedding ceremony on Sunday, 3 January 2027 at 10:30 AM (IST).',
       'END:VEVENT',
       'BEGIN:VEVENT',
-      'UID:riya-joel-reception-punalur-20270103@weddingcard',
+      'UID:joel-riya-reception-punalur-20270103@weddingcard',
       'DTSTAMP:20261112T090000Z',
       'DTSTART:20270103T070000Z',
       'DTEND:20270103T100000Z',
-      'SUMMARY:Wedding Reception — Dr. Riya Mary Mathew & Joel George',
+      'SUMMARY:Wedding Reception — Joel George & Dr. Riya Mary Mathew',
       'LOCATION:KG Convention Centre, Punalur',
       'DESCRIPTION:Reception on Sunday, 3 January 2027 at 12:30 PM (IST).',
       'END:VEVENT',
       'BEGIN:VEVENT',
-      'UID:riya-joel-reception-20270105@weddingcard',
+      'UID:joel-riya-reception-20270105@weddingcard',
       'DTSTAMP:20261112T090000Z',
       'DTSTART:20270105T113000Z',
       'DTEND:20270105T160000Z',
-      'SUMMARY:Wedding Reception — Dr. Riya Mary Mathew & Joel George',
+      'SUMMARY:Wedding Reception — Joel George & Dr. Riya Mary Mathew',
       'LOCATION:Mount Carmel Convention Centre, Vazhuthacaud, Thiruvananthapuram, Keralam 695014',
       'DESCRIPTION:Reception on Tuesday, 5 January 2027 from 5:00 PM onwards (IST).',
       'END:VEVENT',
@@ -342,7 +342,7 @@ function initCalendarDownload() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'Riya-and-Joel-Wedding-Dates.ics';
+    link.download = 'Joel-and-Riya-Wedding-Dates.ics';
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -354,7 +354,7 @@ function initCalendarDownload() {
    5. Interactive RSVP Form & Google Sheets Connection
    -------------------------------------------------------------------------- */
 // Once you deploy the Google Apps Script Web App, paste its URL below:
-const GOOGLE_RSVP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwPdz_xHlv2ByL9lPk0CUgCKrMse-cAhjHuep1B7C-RNR0bc5g8JSWpG052hUXhg8QB/exec';
+const GOOGLE_RSVP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxxhZ6RLiBXAo-mqxyN5BwRw6GxQzqF_TV-4f_pSh-IBS_RmENiqj84sfGT-nWxGskr/exec';
 
 function initRsvpForm() {
   const form = document.getElementById('rsvp-form');
@@ -365,8 +365,8 @@ function initRsvpForm() {
   const noteText = document.getElementById('rsvp-note-text');
   const submitBtn = document.getElementById('rsvp-submit-btn');
   const statusMsg = document.getElementById('rsvp-status-message');
-  const STORAGE_KEY = 'riya_joel_rsvp_choice_v2';
-  const STORAGE_NAME_KEY = 'riya_joel_rsvp_name_v2';
+  const STORAGE_KEY = 'joel_riya_rsvp_choice_v2';
+  const STORAGE_NAME_KEY = 'joel_riya_rsvp_name_v2';
 
   const updateMessage = (value) => {
     if (!noteText) return;
