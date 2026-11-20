@@ -326,15 +326,6 @@ function initCalendarDownload() {
       'LOCATION:KG Convention Centre, Punalur',
       'DESCRIPTION:Reception on Sunday, 3 January 2027 at 12:30 PM (IST).',
       'END:VEVENT',
-      'BEGIN:VEVENT',
-      'UID:joel-riya-reception-20270105@weddingcard',
-      'DTSTAMP:20261112T090000Z',
-      'DTSTART:20270105T113000Z',
-      'DTEND:20270105T160000Z',
-      'SUMMARY:Wedding Reception — Joel George & Dr. Riya Mary Mathew',
-      'LOCATION:Mount Carmel Convention Centre, Vazhuthacaud, Thiruvananthapuram, Keralam 695014',
-      'DESCRIPTION:Reception on Tuesday, 5 January 2027 from 5:00 PM onwards (IST).',
-      'END:VEVENT',
       'END:VCALENDAR'
     ].join('\r\n');
 
@@ -342,7 +333,7 @@ function initCalendarDownload() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'Joel-and-Riya-Wedding-Dates.ics';
+    link.download = 'Joel-and-Riya-Wedding.ics';
     document.body.appendChild(link);
     link.click();
     link.remove();
